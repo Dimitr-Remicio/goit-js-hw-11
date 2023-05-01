@@ -1,7 +1,9 @@
 import './css/styles.css';
-import './css/search-field.css';
-import './css/load-more.css';
-// import './css/gallery.css';
+import './css/partials/search-field.css';
+import './css/partials/load-more.css';
+import './css/partials/header.css';
+import './css/partials/btn-up-to-top.css';
+import './css/others.css';
 
 import GalleryApi from './js/gallery-fetch';
 import './sass/gallery.scss';
@@ -45,7 +47,7 @@ function onSearchForm(e) {
 
   if (galleryApi.query === '') {
       clearAll();
-      return Notify.info("Input your search query.");
+      return Notify.info("Ingrese su consulta de búsqueda.");
   }
 
 
@@ -89,19 +91,19 @@ function onLoadMoreBtn() {
 }
 
 function alertImagesFound(data) {
-  Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+  Notiflix.Notify.success(`¡Hurra! Encontramos ${data.totalHits} imágenes.`);
 }
 
 function alertNoEmptySearch() {
-  Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.');
+  Notiflix.Notify.failure('La búsqueda no puede estar vacía. Por favor, especifique su consulta de búsqueda.');
 }
 
 function alertNoImagesFound() {
   Notiflix.Notify.failure(
-    'Sorry, there are no images matching your search query. Please try again.',
+    'Lo sentimos, no hay imágenes que coincidan con su consulta de búsqueda. Inténtalo de nuevo.',
   );
 }
 
 function alertEndOfSearch() {
-  Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+  Notiflix.Notify.failure("Lo sentimos, pero ha llegado al final de los resultados de búsqueda.");
 }
